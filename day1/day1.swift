@@ -27,6 +27,8 @@ func updateXY(x: Int, y: Int, factor: Int, direction: Direction) -> (newX: Int, 
     let deltaY = -1 * (direction.rawValue - 1) % 2
     let newX = x + deltaX * factor, newY = y + deltaY * factor
     if haveSeenIntersection == false {
+        //Gross violation of DRYness below
+        //To resolve such issues I'll learn more about Swift's Ranges, Intervals, etc.
         if deltaX == 0 {
             for j in (min(y, newY) + 1)..<(max(y, newY)){
                 hash = "\(x),\(j)"
